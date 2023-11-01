@@ -2,3 +2,15 @@
   background: url('/assets/Background.png');
   background-size: cover;
 }
+
+.button-hover {
+  background: transparent;
+}
+
+.button-hover:hover {
+  background: linear-gradient(
+    281deg,
+    #f65b0b -1.75%,
+    rgba(246, 91, 11, 0) 63.81%
+  );
+}
