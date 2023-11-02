@@ -2,10 +2,18 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import AdminDashboard from './pages/AdminDashboard';
+import Arrived from './pages/Arrived';
+import AvailableNow from './pages/AvailableNow';
+import ContactUs from './pages/ContactUs';
 import Dashboard from './pages/Dashboard';
 import Error from './pages/Error';
+import FAQs from './pages/FAQs';
+import Filter from './pages/Filter';
 import LandingPage from './pages/LandingPage';
 import Layout from './pages/Layout';
+import MyCalendar from './pages/MyCalendar';
+import PayNow from './pages/PayNow';
 import RequireAuth from './pages/RequireAuth';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
@@ -26,6 +34,14 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route element={<RequireAuth />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/pay-now" element={<PayNow />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/faqs" element={<FAQs />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/filter" element={<Filter />} />
+            <Route path="/my-calendar" element={<MyCalendar />} />
+            <Route path="/user-arrived" element={<Arrived />} />
+            <Route path="/available" element={<AvailableNow />} />
           </Route>
         </Route>
 
