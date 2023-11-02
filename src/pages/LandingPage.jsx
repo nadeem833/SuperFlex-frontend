@@ -2,12 +2,8 @@ import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import AboutUs from '../components/AboutUs';
-import ContactUs from '../components/ContactUs';
 import Hero from '../components/Hero';
 import LandingPageFooter from '../components/LandingPageFooter';
-import LandingPageNavbar from '../components/LandingPageNavbar';
-import Pricing from '../components/Pricing';
 
 const LandingPage = () => {
   const navigate = useNavigate();

@@ -8,7 +8,6 @@ const LandingPageNavbar = () => {
   const location = useLocation();
   const currentURL = location.pathname;
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const NavLinkStyle =
     'hover:text-[#f7931e] flex gap-2 items-center text-white text-[18px] font-light';

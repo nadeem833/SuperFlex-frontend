@@ -1,17 +1,7 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import React from 'react';
 
 function DashboardWrapper({ children }) {
-    return (
-        <>
-        <Navbar />
-        <div className='min-h-[calc(100vh-185px)] bg-gray-100 flex justify-center'>
-            {children}
-        </div>
-        <Footer/>
-        </>
-    )
+  return <div className="w-screen h-screen bg-red-200">{children}</div>;
 }
 
-export default DashboardWrapper
+export default DashboardWrapper;

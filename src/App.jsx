@@ -4,11 +4,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Dashboard from './pages/Dashboard';
 import Error from './pages/Error';
-import ForgotPassword from './pages/ForgotPassword';
 import LandingPage from './pages/LandingPage';
 import Layout from './pages/Layout';
 import RequireAuth from './pages/RequireAuth';
-import ResetPassword from './pages/ResetPassword';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 

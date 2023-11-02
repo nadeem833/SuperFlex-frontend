@@ -27,21 +27,22 @@ const SignIn = () => {
   };
 
   const handleSubmit = async values => {
-    let apiObject = {
-      email: values.email,
-      password: values.password,
-      phone: values.phone
-    };
-    console.log('apiObject', apiObject);
-    await publicRequest
-      .post(`sign-up`, apiObject)
-      .then(res => {
-        toast.success('Sign Up Successful!');
-        navigate('/sign-in');
-      })
-      .catch(error => {
-        toast.error(error.response.data.msg);
-      });
+    navigate('/dashboard');
+    // let apiObject = {
+    //   email: values.email,
+    //   password: values.password,
+    //   phone: values.phone
+    // };
+    // console.log('apiObject', apiObject);
+    // await publicRequest
+    //   .post(`sign-up`, apiObject)
+    //   .then(res => {
+    //     toast.success('Sign Up Successful!');
+    //     navigate('/sign-in');
+    //   })
+    //   .catch(error => {
+    //     toast.error(error.response.data.msg);
+    //   });
   };
 
   const formik = useFormik({
@@ -159,7 +160,7 @@ const SignIn = () => {
             </div>
 
             <button type="submit" className={`${styles.submitButton}`}>
-              Register
+              Login
             </button>
             <div className="flex gap-1 justify-center items-center w-full mt-5 text-sm font-normal leading-5 text-white text-center">
               New Account ?
