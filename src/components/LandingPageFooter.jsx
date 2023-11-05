@@ -1,7 +1,7 @@
 const LandingPageFooter = () => {
   return (
-    <footer className="bg-black mt-14 border-t">
-      <div className="p-4 block mx-auto md:flex md:justify-between md:items-center">
+    <footer className="bg-black  ">
+      <div className="p-4 block mx-auto md:flex md:justify-between md:items-center min-h-[130px]">
         <div className="md:flex md:gap-4 laptop:gap-24 items-center ">
           <img
             src="/assets/SuperflexLogo.svg"

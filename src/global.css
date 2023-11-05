@@ -2,6 +2,14 @@
   background: url('/assets/Background.png');
   background-size: cover;
 }
+.feature-background {
+  background: url('/assets/Robo2.svg');
+  background-size: cover;
+}
+.pricing-background {
+  background: url('/assets/Phone.svg');
+  background-size: cover;
+}
 .sidebar-background {
   border-radius: 27px;
   border: 1px solid #f65b0b;

@@ -2,33 +2,38 @@ import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
+import FAQ from '../components/FAQ';
+import Features from '../components/Features';
 import Hero from '../components/Hero';
 import LandingPageFooter from '../components/LandingPageFooter';
+import Pricing from '../components/Pricing';
 
 const LandingPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="bg-black">
+    <div className="bg-black overflow-x-hidden">
       <Hero />
-
-      {/* <div className="relative overflow-x-hidden">
-        <AboutUs />
-        <div className="hidden 2xl:flex absolute top-[10%] -right-[10%] w-[800px] h-[800px] rounded-full justify-end bg-[#fdaa4f] blur-[165px] opacity-[0.07]" />
-
+      {/* <Features /> */}
+      <div className="relative">
         <Pricing />
-        <div className="hidden 2xl:flex absolute top-[54%] -right-20 w-[450px] h-[450px] justify-end z-[99999]">
-          <img
-            src="/MoneyBag.png"
-            alt="Not working"
-            className="object-contain w-auto h-full z-[99999]"
-          />
-        </div>
+        <img
+          src="/assets/Lights.svg"
+          alt="Lights"
+          className="absolute top-[0px] right-[5%]  "
+        />
 
-        <div className="hidden 2xl:flex absolute top-[72%] -right-28 w-[450px] h-[450px] rounded-full justify-end bg-[#f79324] blur-[165px] opacity-[0.15]" />
-
-        <div className="hidden 2xl:flex absolute top-[50%] -left-28 w-[450px] h-[450px] rounded-full justify-end bg-[#f79324] blur-[165px] opacity-10" />
+        <img
+          src="/assets/Lights.svg"
+          alt="Lights"
+          className="absolute hidden lg:block bottom-[600px] left-[25%]  "
+        />
       </div>
-      <ContactUs /> */}
+      <FAQ />
+
+      <div className="flex justify-end w-[100%] mt-14">
+        <div className="w-[80%] h-[0.5px] bg-white" />
+      </div>
+
       <LandingPageFooter />
     </div>
   );

@@ -8,13 +8,12 @@ import '../global.css';
 
 import LandingPageNavbar from './LandingPageNavbar';
 
-const Hero = () => {
+const Features = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="background1 laptop:min-h-[1000px] mb-[66px] overflow-x-hidden">
-      <LandingPageNavbar />
-      <section
+    <div className="feature-background laptop:min-h-[1000px] mb-[66px]">
+      {/* <section
         id="Home"
         className=" w-screen max-w-[1280px] mx-auto flex justify-between items-center px-4 py-8 h-full "
       >
@@ -88,9 +87,9 @@ const Hero = () => {
             </motion.div>
           </div>
         </motion.div>
-      </section>
+      </section> */}
     </div>
   );
 };
 
-export default Hero;
+export default Features;
