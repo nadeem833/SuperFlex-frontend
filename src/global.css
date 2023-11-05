@@ -2,6 +2,29 @@
   background: url('/assets/Background.png');
   background-size: cover;
 }
+.sidebar-background {
+  border-radius: 27px;
+  border: 1px solid #f65b0b;
+  background: linear-gradient(
+    180deg,
+    rgba(58, 58, 58, 0.56) 61.42%,
+    rgba(246, 91, 11, 0.09) 148.58%
+  );
+
+  box-shadow: 0px 64px 64px -32px rgba(41, 15, 0, 0.56);
+  backdrop-filter: blur(80px);
+}
+.sidebar-separator {
+  width: 100%;
+  height: 1px;
+  flex-shrink: 0;
+  opacity: 0.32;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #cc8b8b 0%,
+    rgba(163, 59, 59, 0) 100%
+  );
+}
 
 .button-hover {
   background: transparent;
@@ -13,4 +36,27 @@
     #f65b0b -1.75%,
     rgba(246, 91, 11, 0) 63.81%
   );
+}
+
+.sidebar-button {
+  background: linear-gradient(
+    281deg,
+    #f65b0b -1.75%,
+    rgba(246, 91, 11, 0) 63.81%
+  );
+}
+
+.active-link {
+  background: radial-gradient(
+    circle,
+    rgba(246, 91, 11, 0.18) 0%,
+    rgba(163, 59, 59, 0) 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  color: #fff;
+}
+.inactive-link {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.56);
 }
