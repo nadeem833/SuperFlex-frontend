@@ -11,7 +11,7 @@ import Pricing from '../components/Pricing';
 const LandingPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="bg-black overflow-x-hidden">
+    <div className="bg-black overflow-x-hidden w-screen">
       <Hero />
       {/* <Features /> */}
       <div className="relative">
@@ -19,7 +19,7 @@ const LandingPage = () => {
         <img
           src="/assets/Lights.svg"
           alt="Lights"
-          className="absolute top-[0px] right-[5%]  "
+          className="absolute hidden lg:block top-[0px] right-[5%]  "
         />
 
         <img

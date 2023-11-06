@@ -41,7 +41,7 @@ const FAQ = () => {
   return (
     <section
       id="Home"
-      className=" w-screen max-w-[1280px] mx-auto flex justify-between items-center px-4 py-8 h-full "
+      className=" w-full max-w-[1280px] mx-auto flex justify-between items-center px-4 py-8 h-full "
     >
       <motion.div
         variants={structuredClone}

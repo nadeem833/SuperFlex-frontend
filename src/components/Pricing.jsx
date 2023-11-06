@@ -65,8 +65,10 @@ const pricingData = [
 const Pricing = () => {
   return (
     <div className="relative mx-auto text-center w-screen max-w-[1280px] z-10">
-      <h1 className="text-4xl text-white font-thin font-poppins">Pricing</h1>
-      <div className="relative flex flex-wrap justify-center lg:justify-start ">
+      <h1 className="text-4xl text-white font-thin font-poppins mb-[38px]">
+        Pricing
+      </h1>
+      <div className="relative flex flex-wrap justify-center lg:justify-start">
         {pricingData.map((data, index) => (
           <PhonePricing {...data} key={index} index={index} />
         ))}

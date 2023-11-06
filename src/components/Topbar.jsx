@@ -1,32 +1,140 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Topbar() {
-  const isSignedIn = true;
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { useDispatch } from 'react-redux';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
+import '../global.css';
+
+const Topbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentURL = location.pathname;
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const NavLinkStyle = 'hover:text-[#f7931e] flex gap-2 items-center';
+
+  const toggleMobileDropdown = () => {
+    setIsMobileDropdownOpen(!isMobileDropdownOpen);
+  };
+
+  const sidebarLinks1 = [
+    {
+      imgURL: '/assets/Dashboard.svg',
+      route: '/dashboard',
+      label: 'Dashboard'
+    },
+    {
+      imgURL: '/assets/PayNow.svg',
+      route: '/pay-now',
+      label: 'Pay Now'
+    },
+    {
+      imgURL: '/assets/ContactUs.svg',
+      route: '/contact-us',
+      label: 'Contact Us'
+    },
+    {
+      imgURL: '/assets/FAQs.svg',
+      route: '/faqs',
+      label: 'FAQs'
+    },
+    {
+      imgURL: '/assets/AdminDashboard.svg',
+      route: '/admin-dashboard',
+      label: 'Admin Dashboard'
+    }
+  ];
+  const sidebarLinks2 = [
+    {
+      imgURL: '/assets/Filter.svg',
+      route: '/filter',
+      label: 'Filter'
+    },
+    {
+      imgURL: '/assets/Calender.svg',
+      route: '/my-calendar',
+      label: 'My Calendar'
+    },
+    {
+      imgURL: '/assets/Location.svg',
+      route: '/user-arrived',
+      label: "I've arrived"
+    },
+    {
+      imgURL: '/assets/AvailableNow.svg',
+      route: '/available',
+      label: 'Available'
+    }
+  ];
+
   return (
-    <nav className="fixed top-0 z-30 flex w-full items-center justify-between bg-yellow-200 px-6 py-3">
-      <a href="/" className="flex items-center gap-4">
-        <img src="/assets/SuperflexLogo.svg" alt="logo" />
-        <p className="text-heading3-bold text-light-1 max-xs:hidden">Threads</p>
-      </a>
+    <nav className="topbar-background ">
+      <div className="w-full p-5 lg:p-0 max-w-[1280px] mx-auto flex justify-between items-center ">
+        {/* Section 1 */}
+        <div className="flex items-center justify-between w-full">
+          {/* Burger Menu */}
+          <img
+            src="/assets/SuperflexLogo.svg"
+            alt="logo"
+            className="object-fit w-[220px] "
+          />
 
-      <div className="flex items-center gap-1">
-        <div className="block md:hidden">
-          {isSignedIn ? (
-            <div className="flex cursor-pointer gap-3">
-              <img src="/logout.svg" alt="user" />
-              <div className="bg-[#121417] border rounded-full p-1">
-                <img src="/user.svg" alt="user" className="rounded-full" />
-              </div>
-            </div>
-          ) : (
-            <div className="flex cursor-pointer">
-              <button className="">Sign In</button>
-            </div>
-          )}
+          <button
+            onClick={toggleMobileDropdown}
+            type="button"
+            className="text-white "
+          >
+            <RxHamburgerMenu className="text-2xl text-white" />
+          </button>
         </div>
       </div>
+
+      {/* Mobile Navigation Dropdown */}
+      {isMobileDropdownOpen && (
+        <div className="lg:hidden mt-2 w-full bg-[#282828] bg-opacity-50 flex flex-col gap-2 py-5 px-4">
+          {sidebarLinks1.map(link => (
+            <Link
+              to={link.route}
+              onClick={() => {
+                toggleMobileDropdown();
+              }}
+            >
+              <a
+                className={`${NavLinkStyle} ${
+                  currentURL.includes(link.route)
+                    ? 'text-[#f7931e]'
+                    : 'text-white'
+                }`}
+              >
+                <img src={link.imgURL} alt="" /> {link.label}
+              </a>
+            </Link>
+          ))}
+          {sidebarLinks2.map(link => (
+            <Link
+              to={link.route}
+              onClick={() => {
+                toggleMobileDropdown();
+              }}
+            >
+              <a
+                className={`${NavLinkStyle} ${
+                  currentURL.includes(link.route)
+                    ? 'text-[#f7931e]'
+                    : 'text-white'
+                }`}
+              >
+                <img src={link.imgURL} alt="" /> {link.label}
+              </a>
+            </Link>
+          ))}
+        </div>
+      )}
     </nav>
   );
-}
+};
 
 export default Topbar;

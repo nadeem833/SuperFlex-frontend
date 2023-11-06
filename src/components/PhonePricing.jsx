@@ -3,10 +3,10 @@ import React from 'react';
 const PhonePricing = ({ features, pricing, subText, title, image, index }) => {
   console.log(index);
   return (
-    <div className="relative w-full max-w-[416px] h-[800px] ">
+    <div className="relative w-auto max-w-[416px] h-[680px] xs:h-[800px] ">
       <img src="/assets/Phone.svg" alt="Phone" className="hidden xs:block " />
       <div
-        class={`absolute top-[75px] right-[65px] w-[320px] h-[640px]  rounded-[45px] py-7 px-8 ${
+        class={` relative xs:absolute xs:top-[75px] xs:right-[30px] w-[300px] xs:w-[320px] h-[640px] rounded-[45px] py-7 px-8 ${
           index === 0 ? 'bg-white' : 'bg-black'
         }
         border border-[#F65B0B]

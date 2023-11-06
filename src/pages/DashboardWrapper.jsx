@@ -7,9 +7,10 @@ import Topbar from '../components/Topbar';
 function DashboardWrapper({ children }) {
   return (
     <>
-      <main className="block laptop:hidden">
+      <main className="laptop:hidden flex flex-col bg-black min-h-screen p-3">
         <Topbar />
-        {children}
+        <DashboardTopBar />
+        <div className="flex-1 mt-4">{children}</div>
       </main>
 
       <main className="hidden laptop:flex laptop:flex-row bg-black items-center h-screen w-screen">
