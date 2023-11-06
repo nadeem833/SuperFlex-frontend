@@ -31,7 +31,7 @@ const LandingPage = () => {
       <FAQ />
 
       <div className="flex justify-end w-[100%] mt-14">
-        <div className="w-[80%] h-[0.5px] bg-white" />
+        <div className="w-[80%] h-[1px] bg-white" />
       </div>
 
       <LandingPageFooter />
