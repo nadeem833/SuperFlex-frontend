@@ -4,7 +4,7 @@ import FAQ from '../components/FAQ';
 
 const FAQs = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden w-full">
       <FAQ />
     </div>
   );

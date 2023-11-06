@@ -14,9 +14,9 @@ function DashboardWrapper({ children }) {
 
       <main className="hidden laptop:flex laptop:flex-row bg-black items-center h-screen w-screen">
         <Sidebar />
-        <section className="flex-1 flex flex-col h-full">
+        <section className="flex-1 flex flex-col h-full px-12">
           <DashboardTopBar />
-          <div className="flex-auto flex flex-col">{children}</div>
+          <div className="flex-auto flex flex-col w-full">{children}</div>
         </section>
       </main>
     </>

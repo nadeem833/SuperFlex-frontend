@@ -2,7 +2,7 @@ import React from 'react';
 
 const DashboardTopBar = () => {
   return (
-    <div className=" w-full h-[132px] flex justify-between items-center px-12">
+    <div className=" w-full h-[132px] flex justify-between items-center">
       <button className="flex items-center justify-center text-white text-opacity-[0.33] font-thin text-sm gap-3 w-[95px] h-[39px] rounded-[26px] bg-[#292929]">
         <img
           src="/assets/BackArrow.svg"
