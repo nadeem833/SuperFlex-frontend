@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import Error from './pages/Error';
 import FAQs from './pages/FAQs';
 import Filter from './pages/Filter';
+import Invites from './pages/Invites';
 import LandingPage from './pages/LandingPage';
 import Layout from './pages/Layout';
 import MyCalendar from './pages/MyCalendar';
@@ -35,6 +36,7 @@ function App() {
           <Route element={<RequireAuth />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/pay-now" element={<PayNow />} />
+            <Route path="/pay-now/invites" element={<Invites />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/faqs" element={<FAQs />} />
             <Route path="/admin-dashboard" element={<AdminDashboard />} />

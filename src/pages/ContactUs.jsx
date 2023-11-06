@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactUsCard = () => {
   return (
-    <div className="w-[628px] h-[182px] rounded-[28.5px] bg-[#282828] pt-[14px] pb-[24px] pl-[32px] pr-[23px]">
+    <div className="w-full max-w-[628px] min-h-[182px] rounded-[28.5px] bg-[#282828] pt-[14px] pb-[24px] pl-[32px] pr-[23px]">
       <h1 className="font-semibold text-white text-3xl">Contact us</h1>
       <p className="text-[#A4A4A4] font-thin text-sm mt-2">
         Contact us via chat, which you can find in the lower right corner of the
