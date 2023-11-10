@@ -1,26 +1,27 @@
-import axios from "axios";
-import { store } from "./store";
+import axios from 'axios';
 
-let BASEURL = "https://backend.flextron.io/";
+import { store } from './store';
+
+let BASEURL = 'https://super-flex-84ad65d4a908.herokuapp.com/';
 
 export const publicRequest = axios.create({
-  baseURL: BASEURL,
+  baseURL: BASEURL
 });
 
 export const privateRequest = axios.create({
   baseURL: BASEURL,
   headers: {
-      'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   },
   timeout: 60000
 });
 
 privateRequest.interceptors.response.use(
-  (response) => {
+  response => {
     // Return the response if it's successful
     return response;
   },
-  (error) => {
+  error => {
     if (error.response.status === 401) {
       // Token has expired, redirect to login page
       window.location.href = '/sign-in'; // Replace with your login page URL

@@ -1,197 +1,13 @@
-// import React, { useState } from "react";
-// import { useFormik } from "formik";
-// import * as Yup from "yup";
-// import { FaEnvelope, FaLock } from "react-icons/fa";
-// import { BsFillPersonFill } from "react-icons/bs";
-// import { useNavigate } from "react-router-dom";
-// import { publicRequest } from "../requestMethods";
-// import { toast } from "react-toastify";
-// import FormHeader from "../components/FormHeader";
-// import styles from "../styles";
-// const ContactUs = () => {
-//   const validationSchema = Yup.object().shape({
-//     email: Yup.string()
-//       .email("Invalid email address")
-//       .required("Email is required"),
-//     // name: Yup.string().required("Name is required"),
-//     phone: Yup.number()
-//       .required("Phone number is required")
-//       .typeError("Invalid phone number"),
-//     password: Yup.string().required("Password is required"),
-//   });
-//   const initialValues = {
-//     // name: "",
-//     email: "",
-//     password: "",
-//     phone: "",
-//   };
-//   const handleSubmit = async (values) => {
-//     let apiObject = {
-//       email: values.email,
-//       password: values.password,
-//       phone: values.phone,
-//     };
-//     console.log('apiObject', apiObject)
-//     await publicRequest
-//       .post(`sign-up`, apiObject)
-//       .then((res) => {
-//         toast.success("Sign Up Successful!");
-//         navigate("/sign-in");
-//       })
-//       .catch((error) => {
-//         toast.error(error.response.data.msg);
-//       });
-//   };
-//   const formik = useFormik({
-//     initialValues,
-//     validationSchema,
-//     onSubmit: handleSubmit,
-//   });
-//   const navigate = useNavigate();
-//   return (
-//     <>
-//       <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 px-3">
-//         <div className="relative w-full max-w-[450px]">
-//           <FormHeader
-//             title={"Register"}
-//             subTitle={"Get 3-Day Free Flextron Trial"}
-//           />
-//           <div className="bg-gray-200 top-[75%] bg-transparent left-8 absolute">
-//             <img
-//               className="object-contain w-[72px] h-[72px] rounded-full border border-orange-300 bg-white"
-//               src="/SmallLogo.png"
-//               alt="avatar"
-//             />
-//           </div>
-//         </div>
-//         <div className="bg-white p-4 md:p-8 shadow-md w-full max-w-[450px] rounded-bl-md rounded-br-md">
-//           <form onSubmit={formik.handleSubmit}>
-//             <label
-//               htmlFor="email"
-//               className="block text-sm font-medium leading-6 text-gray-700 mb-2 mt-[40px]"
-//             >
-//               Email
-//             </label>
-//             <div
-//               className={` ${
-//                 !(formik.touched.email && formik.errors.email) ? "mb-4" : ""
-//               } border-gray-300 border rounded-md flex items-center h-9`}
-//             >
-//               <span className="h-full flex items-center py-1 px-3 text-sm font-normal leading-5 text-gray-700 text-center whitespace-nowrap bg-gray-200 border rounded-tl-md rounded-bl-md">
-//                 <FaEnvelope />
-//               </span>
-//               <input
-//                 type="text"
-//                 id="email"
-//                 name="email"
-//                 placeholder="Amazon Flex Email"
-//                 className="w-full rounded-md px-2 py-1 text-xs font-normal leading-6 text-gray-700 placeholder-gray-400 focus:outline-none "
-//                 value={formik.values.email}
-//                 onChange={formik.handleChange}
-//                 error={formik.touched.email && Boolean(formik.errors.email)}
-//               />
-//             </div>
-//             {formik.touched.email && formik.errors.email && (
-//               <div className="text-red-600 text-xs mb-2 font-semibold py-2">
-//                 {formik.errors.email}
-//               </div>
-//             )}
-//             <label
-//               htmlFor="password"
-//               className="block text-sm font-medium leading-6 text-gray-700 mb-2"
-//             >
-//               Password
-//             </label>
-//             <div
-//               className={` ${
-//                 !(formik.touched.password && formik.errors.password)
-//                   ? "mb-4"
-//                   : ""
-//               } border-gray-300 border rounded-md flex items-center h-9`}
-//             >
-//               <span className="h-full flex items-center py-1 px-3 text-sm font-normal leading-5 text-gray-700 text-center whitespace-nowrap bg-gray-200 border rounded-tl-md rounded-bl-md">
-//                 <FaLock />
-//               </span>
-//               <input
-//                 type="password"
-//                 id="password"
-//                 name="password"
-//                 placeholder="Amazon Flex Password"
-//                 className="w-full rounded-md px-2 py-1 text-xs font-normal leading-6 text-gray-700 placeholder-gray-400 text-xs::placeholder focus:outline-none "
-//                 value={formik.values.password}
-//                 onChange={formik.handleChange}
-//                 error={
-//                   formik.touched.password && Boolean(formik.errors.password)
-//                 }
-//               />
-//             </div>
-//             {formik.touched.password && formik.errors.password && (
-//               <div className="text-red-600 text-xs mb-2 font-semibold py-2">
-//                 {formik.errors.password}
-//               </div>
-//             )}
-//             <label
-//               htmlFor="phone"
-//               className="block text-sm font-medium leading-6 text-gray-700 mb-2"
-//             >
-//               Phone
-//             </label>
-//             <div
-//               className={` ${
-//                 !(formik.touched.phone && formik.errors.phone) ? "mb-6" : ""
-//               } border-gray-300 border rounded-md flex items-center h-9`}
-//             >
-//               <span className="h-full flex items-center py-1 px-3 text-sm font-normal leading-5 text-gray-700 text-center whitespace-nowrap bg-gray-200 border rounded-tl-md rounded-bl-md">
-//                 +1
-//               </span>
-//               <input
-//                 type="text"
-//                 id="phone"
-//                 name="phone"
-//                 placeholder="Amazon Flex Phone"
-//                 className="w-full rounded-md px-2 py-1 text-xs font-normal leading-6 text-gray-700 placeholder-gray-400 text-xs::placeholder focus:outline-none "
-//                 value={formik.values.phone}
-//                 onChange={formik.handleChange}
-//                 error={formik.touched.phone && Boolean(formik.errors.phone)}
-//               />
-//             </div>
-//             {formik.touched.phone && formik.errors.phone && (
-//               <div className="text-red-600 text-xs mb-6 font-semibold py-2">
-//                 {formik.errors.phone}
-//               </div>
-//             )}
-//             <button type="submit" className={`${styles.submitButton}`}>
-//               Register
-//             </button>
-//           </form>
-//         </div>
-//         <div className="flex gap-1 justify-center items-center w-full mt-5 text-sm font-normal leading-5 text-gray-700 text-center">
-//           Already have an account ?{" "}
-//           <span
-//             onClick={() => {
-//               navigate("/sign-in");
-//             }}
-//             className="text-[#f7931e] font-medium cursor-pointer"
-//           >
-//             Login
-//           </span>
-//         </div>
-//         <div className="flex gap-1 justify-center items-center w-full mt-4 text-sm font-normal leading-5 text-gray-700 text-center">
-//           Copyright © 2023 FlexTron. All rights reserved.
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-// export default ContactUs;
 import React, { useState } from 'react';
 
 import { useFormik } from 'formik';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 
 import '../global.css';
+import { publicRequest } from '../requestMethods';
 import styles from '../styles';
 
 const SignUp = () => {
@@ -222,8 +38,10 @@ const SignUp = () => {
 
   const handleSubmit = async values => {
     let apiObject = {
-      email: values.email,
+      user_name: values.name,
+      email: 'test@yopmail.com',
       password: values.password,
+      confirm_password: values.password,
       phone: values.phone
     };
     console.log('apiObject', apiObject);
@@ -373,8 +191,9 @@ const SignUp = () => {
                 {formik.errors.password}
               </div>
             )}
+
             <label
-              htmlFor="confirm-password"
+              htmlFor="confirmPassword"
               className="block text-sm font-light leading-6 text-white mb-2 ml-6"
             >
               Confirm Password
@@ -382,7 +201,10 @@ const SignUp = () => {
 
             <div
               className={` ${
-                !(formik.touched.password && formik.errors.password)
+                !(
+                  formik.touched.confirmPassword &&
+                  formik.errors.confirmPassword
+                )
                   ? 'mb-1'
                   : ''
               }  h-[60px] w-full rounded-full bg-gradient-to-r from-[#F65B0B]  to-[#1f1f1f] p-[0.5px]`}
@@ -390,8 +212,8 @@ const SignUp = () => {
               <div className="flex h-full rounded-full w-full items-center justify-center bg-[#1f1f1f] px-4 sm:px-8 gap-4">
                 <input
                   type={showConfirmPassword ? 'text' : 'password'}
-                  id="confirm-password"
-                  name="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
                   placeholder="Confirm Password"
                   className="flex-1 h-full rounded-full text-[14px] font-normal leading-6 bg-inherit  text-white placeholder-[#FAFAFA] text-[14px]::placeholder focus:outline-none "
                   value={formik.values.confirmPassword}

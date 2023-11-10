@@ -7,9 +7,11 @@ import Arrived from './pages/Arrived';
 import AvailableNow from './pages/AvailableNow';
 import ContactUs from './pages/ContactUs';
 import Dashboard from './pages/Dashboard';
+import DislikedOffers from './pages/DislikedOffers';
 import Error from './pages/Error';
 import FAQs from './pages/FAQs';
 import Filter from './pages/Filter';
+import GoneOffers from './pages/GoneOffers';
 import Invites from './pages/Invites';
 import LandingPage from './pages/LandingPage';
 import Layout from './pages/Layout';
@@ -35,6 +37,11 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route element={<RequireAuth />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/gone-offers" element={<GoneOffers />} />
+            <Route
+              path="/dashboard/disliked-offers"
+              element={<DislikedOffers />}
+            />
             <Route path="/pay-now" element={<PayNow />} />
             <Route path="/pay-now/invites" element={<Invites />} />
             <Route path="/contact-us" element={<ContactUs />} />

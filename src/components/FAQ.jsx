@@ -15,7 +15,7 @@ const faqList = [
   {
     question: 'How is payment made?',
     answer:
-      'Through our website you can pay with a card, we use Stripe as a payment method, one of the safest platforms for processing payments online.'
+      'Through our website you can pay with a card, we use Stripe and Paypal as our payment methods, one of the safest platforms for processing payments online.'
   },
   {
     question: 'What are your customer service hours?',

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import * as Yup from 'yup';
 
 import '../global.css';
+import { publicRequest } from '../requestMethods';
 import styles from '../styles';
 
 const SignIn = () => {
@@ -28,21 +29,20 @@ const SignIn = () => {
 
   const handleSubmit = async values => {
     navigate('/dashboard');
-    // let apiObject = {
-    //   email: values.email,
-    //   password: values.password,
-    //   phone: values.phone
-    // };
-    // console.log('apiObject', apiObject);
-    // await publicRequest
-    //   .post(`sign-up`, apiObject)
-    //   .then(res => {
-    //     toast.success('Sign Up Successful!');
-    //     navigate('/sign-in');
-    //   })
-    //   .catch(error => {
-    //     toast.error(error.response.data.msg);
-    //   });
+    let apiObject = {
+      password: values.password,
+      phone: values.phone
+    };
+    console.log('apiObject', apiObject);
+    await publicRequest
+      .post(`login`, apiObject)
+      .then(res => {
+        toast.success('Sign Up Successful!');
+        navigate('/dashboard');
+      })
+      .catch(error => {
+        toast.error(error.response.data.msg);
+      });
   };
 
   const formik = useFormik({

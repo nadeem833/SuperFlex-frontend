@@ -8,7 +8,7 @@ const pricingData = [
     title: '1-day trail plan',
     pricing: '$0',
     subText:
-      'Enjoy our system for 1 day for free with all its functionalities.',
+      'Enjoy our system for 5 day for free with all its functionalities.',
     features: [
       'Unlimited offer capture',
       'SMS notification',
