@@ -5,7 +5,7 @@ import PhonePricing from './PhonePricing';
 const pricingData = [
   {
     image: '/assets/DaysGrey.svg',
-    title: '1-day trail plan',
+    title: '5-day trail plan',
     pricing: '$0',
     subText:
       'Enjoy our system for 5 day for free with all its functionalities.',
