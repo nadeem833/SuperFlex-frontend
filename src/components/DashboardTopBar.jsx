@@ -2,6 +2,10 @@ import React from 'react';
 
 import { useLocation, useNavigate } from 'react-router';
 
+// const profileLinks = [
+//   {link : '' , text:''}
+// ]
+
 const DashboardTopBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -42,7 +46,12 @@ const DashboardTopBar = () => {
             />
           </button>
 
-          <div className="flex gap-3">
+          <div
+            className="flex gap-3 cursor-pointer relative"
+            onClick={() => {
+              navigate('/user-profile');
+            }}
+          >
             <div>
               <p className="text-white font-poppins text-base font-medium leading-normal tracking-tight">
                 John Doe
@@ -54,6 +63,18 @@ const DashboardTopBar = () => {
             <div className="w-12 h-12 rounded-[36px] border">
               <img src="/assets/Avatar.png" alt="Avatar" />
             </div>
+
+            {/* <div className="absolute w-full top-[100%] mt-2  bg-white border rounded shadow-md">
+            {
+
+            }
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-800 hover:bg-orange-200"
+              >
+                Item 3
+              </a>
+            </div> */}
           </div>
         </div>
       </div>

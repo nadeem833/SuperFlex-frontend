@@ -5,9 +5,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import AdminDashboard from './pages/AdminDashboard';
 import Arrived from './pages/Arrived';
 import AvailableNow from './pages/AvailableNow';
+import ChangePassword from './pages/ChangePassword';
 import ContactUs from './pages/ContactUs';
 import Dashboard from './pages/Dashboard';
 import DislikedOffers from './pages/DislikedOffers';
+import EditProfile from './pages/EditProfile';
 import Error from './pages/Error';
 import FAQs from './pages/FAQs';
 import Filter from './pages/Filter';
@@ -20,6 +22,7 @@ import PayNow from './pages/PayNow';
 import RequireAuth from './pages/RequireAuth';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import UserProfile from './pages/UserProfile';
 
 function App() {
   return (
@@ -51,6 +54,9 @@ function App() {
             <Route path="/my-calendar" element={<MyCalendar />} />
             <Route path="/user-arrived" element={<Arrived />} />
             <Route path="/available" element={<AvailableNow />} />
+            <Route path="/user-profile" element={<UserProfile />} />
+            <Route path="/edit-profile" element={<EditProfile />} />
+            <Route path="/change-password" element={<ChangePassword />} />
           </Route>
         </Route>
 
