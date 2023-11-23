@@ -38,7 +38,7 @@ const SignUp = () => {
 
   const handleSubmit = async values => {
     let apiObject = {
-      user_name: values.name,
+      full_name: values.name,
       email: 'test@yopmail.com',
       password: values.password,
       confirm_password: values.password,
@@ -81,7 +81,7 @@ const SignUp = () => {
 
           <form
             onSubmit={formik.handleSubmit}
-            autocomplete="off"
+            autoComplete="off"
             className="max-w-[472px] w-full"
           >
             <label

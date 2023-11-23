@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 
 import { useFormik } from 'formik';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 
 import '../global.css';
+import { loginSuccess } from '../redux/authSlice';
 import { publicRequest } from '../requestMethods';
 import styles from '../styles';
 
 const SignIn = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -31,13 +35,14 @@ const SignIn = () => {
     navigate('/dashboard');
     let apiObject = {
       password: values.password,
-      phone: values.phone
+      phone_number: values.phone
     };
     console.log('apiObject', apiObject);
     await publicRequest
       .post(`login`, apiObject)
       .then(res => {
-        toast.success('Sign Up Successful!');
+        toast.success('Sign In Successful!');
+        dispatch(loginSuccess(res));
         navigate('/dashboard');
       })
       .catch(error => {
@@ -70,7 +75,7 @@ const SignIn = () => {
 
           <form
             onSubmit={formik.handleSubmit}
-            autocomplete="off"
+            autoComplete="off"
             className="max-w-[472px]w-full"
           >
             <label

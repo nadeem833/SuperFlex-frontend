@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 
 import '../global.css';
-import { publicRequest } from '../requestMethods';
+import { privateRequest } from '../requestMethods';
 import styles from '../styles';
 
 const EditProfile = () => {
@@ -24,23 +24,19 @@ const EditProfile = () => {
   };
 
   const handleSubmit = values => {
-    // let apiObject = {
-    //   user_name: values.name,
-    //   email: 'test@yopmail.com',
-    //   password: values.password,
-    //   confirm_password: values.password,
-    //   phone: values.phone
-    // };
-    // console.log('apiObject', apiObject);
-    // publicRequest
-    //   .post(`sign-up`, apiObject)
-    //   .then(res => {
-    //     toast.success('Sign Up Successful!');
-    //     navigate('/sign-in');
-    //   })
-    //   .catch(error => {
-    //     toast.error(error.response.data.msg);
-    //   });
+    let apiObject = {
+      user_name: values.name,
+      phone: values.phone
+    };
+    console.log('apiObject', apiObject);
+    privateRequest
+      .put(`update-user`, apiObject)
+      .then(res => {
+        toast.success('Profile Updated Successfully!');
+      })
+      .catch(error => {
+        toast.error(error.response.data.msg);
+      });
   };
 
   const formik = useFormik({

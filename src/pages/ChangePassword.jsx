@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 
 import '../global.css';
-import { publicRequest } from '../requestMethods';
+import { privateRequest } from '../requestMethods';
 import styles from '../styles';
 
 const ChangePassword = () => {
@@ -38,23 +38,19 @@ const ChangePassword = () => {
   };
 
   const handleSubmit = values => {
-    // let apiObject = {
-    //   user_name: values.name,
-    //   email: 'test@yopmail.com',
-    //   password: values.password,
-    //   confirm_password: values.password,
-    //   phone: values.phone
-    // };
-    // console.log('apiObject', apiObject);
-    // publicRequest
-    //   .post(`sign-up`, apiObject)
-    //   .then(res => {
-    //     toast.success('Sign Up Successful!');
-    //     navigate('/sign-in');
-    //   })
-    //   .catch(error => {
-    //     toast.error(error.response.data.msg);
-    //   });
+    let apiObject = {
+      password: values.oldPassword,
+      newpassword: values.newPassword,
+      confirm_newpassword: values.confirmPassword
+    };
+    privateRequest
+      .post(`change-password`, apiObject)
+      .then(res => {
+        toast.success('Password Changed Successfully!');
+      })
+      .catch(error => {
+        toast.error(error.response.data.msg);
+      });
   };
 
   const formik = useFormik({
