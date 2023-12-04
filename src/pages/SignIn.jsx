@@ -31,14 +31,12 @@ const SignIn = () => {
     phone: ''
   };
 
-  const handleSubmit = async values => {
-    navigate('/dashboard');
+  const handleSubmit = values => {
     let apiObject = {
       password: values.password,
       phone_number: values.phone
     };
-    console.log('apiObject', apiObject);
-    await publicRequest
+    publicRequest
       .post(`login`, apiObject)
       .then(res => {
         toast.success('Sign In Successful!');
