@@ -7,6 +7,7 @@ function RequireAuth() {
   const location = useLocation();
   // const isAuthenticated = true;
   const { isAuthenticated } = useSelector(state => state.auth);
+  console.log('isAuthenticated', isAuthenticated);
   return isAuthenticated ? (
     <Outlet />
   ) : (

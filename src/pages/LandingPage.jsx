@@ -11,7 +11,7 @@ import Pricing from '../components/Pricing';
 const LandingPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="bg-black overflow-x-hidden w-screen">
+    <div className="bg-black min-h-screen overflow-x-hidden w-full">
       <Hero />
       {/* <Features /> */}
       <div className="relative">
