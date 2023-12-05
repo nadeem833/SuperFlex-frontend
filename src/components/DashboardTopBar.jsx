@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
 
 // const profileLinks = [
@@ -9,6 +10,7 @@ import { useLocation, useNavigate } from 'react-router';
 const DashboardTopBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { full_name } = useSelector(state => state.auth.userDetails);
   const currentURL = location.pathname;
   console.log(location.pathname);
   console.log(currentURL === '/pay-now');
@@ -54,7 +56,7 @@ const DashboardTopBar = () => {
           >
             <div>
               <p className="text-white font-poppins text-base font-medium leading-normal tracking-tight">
-                John Doe
+                {full_name}
               </p>
               <p className="text-gray-500 font-poppins text-base font-medium leading-normal tracking-tight">
                 john@yopmail.com

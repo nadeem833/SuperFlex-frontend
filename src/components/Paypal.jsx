@@ -17,7 +17,7 @@ export default function Paypal({ selectedPlan }) {
       window.paypal
         .Buttons({
           style: {
-            layout: 'vertical', // 'horizontal' by default. Change to 'vertical' for a vertical layout.
+            layout: 'horizontal', // 'horizontal' by default. Change to 'vertical' for a vertical layout.
             color: 'gold', // Specify the color of the PayPal button. You can use hex codes or color names.
             shape: 'pill', // 'rect' (default) or 'pill' for a rounded button.
             size: 'responsive', // 'responsive' by default
@@ -61,7 +61,7 @@ export default function Paypal({ selectedPlan }) {
 
   return (
     <div>
-      <div className="xs:w-[330px] w-[100%]" ref={paypal}></div>
+      <div className="xs:w-[510px] w-[100%]" ref={paypal}></div>
     </div>
   );
 }

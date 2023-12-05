@@ -47,7 +47,7 @@ const PayNow = () => {
       <h1 className="font-semibold text-white text-3xl">
         Select a plan to the payment
       </h1>
-      <div className="flex gap-8 flex-wrap my-5">
+      <div className="flex gap-8 flex-wrap my-8">
         {plans.map((plan, index) => (
           <PlanCard
             isActive={selectedPlan?.id === plan.id}
