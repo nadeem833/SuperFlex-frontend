@@ -3,8 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   userToken: null,
   userDetails: {
-    email: '',
-    phone: ''
+    full_name: '',
+    phone: '',
+    next_payment_date: '',
+    is_paid: ''
   },
   isAuthenticated: false
 };
@@ -16,16 +18,20 @@ const authSlice = createSlice({
     loginSuccess: (state, action) => {
       state.userToken = `${action.payload.data.access_token}`;
       state.userDetails = {
-        email: action.payload.data.user_id,
-        phone: action.payload.data.phone
+        full_name: action.payload.data.user_name,
+        phone: action.payload.data.phone,
+        next_payment_date: action.payload.data.next_payment_date,
+        is_paid: action.payload.data.is_paid
       };
       state.isAuthenticated = true;
     },
     logoutSuccess: state => {
       state.userToken = null;
       (state.userDetails = {
-        email: '',
-        phone: ''
+        full_name: '',
+        phone: '',
+        next_payment_date: '',
+        is_paid: ''
       }),
         (state.isAuthenticated = false);
     }
