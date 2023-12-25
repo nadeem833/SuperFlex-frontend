@@ -4,38 +4,33 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
-import { fadeIn, slideIn, staggerContainer, textVariant } from '../../motion';
+import { fadeIn, slideIn } from '../../motion';
 import '../global.css';
 
-const userName = 'David';
 const faqList = [
   {
-    question: 'Is it safe to use SuperFlex?',
-    answer:
-      '100% safe, follow our instructions and we assure you that your account will never be at risk, the security of your account is our top priority!'
+    question: 'faq.question.safety',
+    answer: 'faq.answer.safety'
   },
   {
-    question: 'How is payment made?',
-    answer:
-      'Through our website you can pay with a card, we use Stripe and Paypal as our payment methods, one of the safest platforms for processing payments online.'
+    question: 'faq.question.payment',
+    answer: 'faq.answer.payment'
   },
   {
-    question: 'What are your customer service hours?',
-    answer: 'From 7 am to 10 pm EST time.'
+    question: 'faq.question.customerServiceHours',
+    answer: 'faq.answer.customerServiceHours'
   },
   {
-    question: 'What do I get if I refer a friend?',
-    answer:
-      'For each friend who registers and pays, you will receive a free week of service.'
+    question: 'faq.question.referralProgram',
+    answer: 'faq.answer.referralProgram'
   },
   {
-    question: 'Do you have limited spots?',
-    answer:
-      'West Superflex is a premium system that allows limited users per city in order to offer them the best service.'
+    question: 'faq.question.limitedSpots',
+    answer: 'faq.answer.limitedSpots'
   },
   {
-    question: 'Do you have an app that I can download?',
-    answer: 'No. Superflex is used through the website.'
+    question: 'faq.question.appDownload',
+    answer: 'faq.answer.appDownload'
   }
 ];
 
@@ -54,11 +49,10 @@ const FAQ = () => {
       >
         <motion.div variants={fadeIn('top', 'tween', 0.2, 1)}>
           <h1 className="text-white font-medium text-4xl">
-            Frequently Asked Questions
+            {t('faq.question.heading')}
           </h1>
           <h2 className="text-white font-thin text-lg">
-            If your question is not here, please contact us via WhatsApp at
-            0000000000 or 0000000000
+            {t('faq.question.subHeading')}
           </h2>
         </motion.div>
 
@@ -80,20 +74,16 @@ const FAQ = () => {
               >
                 <div className="flex flex-col h-full rounded-[34px] w-full items-start justify-center bg-black px-4 sm:px-8 gap-4">
                   <h2 className="text-white font-medium text-xl">
-                    {t('faq.question', { question: faq.question })}
+                    {t(`${faq.question}`)}
                   </h2>
                   <p className="text-white font-thin text-sm">
-                    {t('faq.answer', { answer: faq.answer })}
+                    {t(`${faq.answer}`)}
                   </p>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        <p className="text-white bg-red-300">
-          {t('my_name', { name: userName })}
-        </p>
       </motion.div>
     </section>
   );
