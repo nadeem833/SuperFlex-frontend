@@ -1,11 +1,13 @@
 import React from 'react';
 
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
 import { fadeIn, slideIn, staggerContainer, textVariant } from '../../motion';
 import '../global.css';
 
+const userName = 'David';
 const faqList = [
   {
     question: 'Is it safe to use SuperFlex?',
@@ -38,6 +40,7 @@ const faqList = [
 ];
 
 const FAQ = () => {
+  const { t } = useTranslation();
   return (
     <section
       id="Home"
@@ -77,14 +80,20 @@ const FAQ = () => {
               >
                 <div className="flex flex-col h-full rounded-[34px] w-full items-start justify-center bg-black px-4 sm:px-8 gap-4">
                   <h2 className="text-white font-medium text-xl">
-                    {faq.question}
+                    {t('faq.question', { question: faq.question })}
                   </h2>
-                  <p className="text-white font-thin text-sm"> {faq.answer}</p>
+                  <p className="text-white font-thin text-sm">
+                    {t('faq.answer', { answer: faq.answer })}
+                  </p>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        <p className="text-white bg-red-300">
+          {t('my_name', { name: userName })}
+        </p>
       </motion.div>
     </section>
   );
