@@ -158,14 +158,54 @@ const DashboardTopBar = () => {
               Invitations
             </button>
           ) : (
-            <button className="flex items-center justify-center gap-5 text-white font-thin text-xs w-[120px]  h-[40px] rounded-[28.5px] bg-[#292929]">
-              English
-              <img
-                src="/assets/ArrowDown.svg"
-                alt="Arrow"
-                className="w-3 h-[6.8px]"
-              />
-            </button>
+            // <button className="flex items-center justify-center gap-5 text-white font-thin text-xs w-[120px]  h-[40px] rounded-[28.5px] bg-[#292929]">
+            //   English
+            //   <img
+            //     src="/assets/ArrowDown.svg"
+            //     alt="Arrow"
+            //     className="w-3 h-[6.8px]"
+            //   />
+            // </button>
+            <div className="relative inline-block text-left">
+              <button
+                type="button"
+                ref={dropdownRef}
+                onClick={() => {
+                  setLanguageDropdown(!languageDropdown);
+                }}
+                className="flex items-center justify-center gap-5 text-white font-thin text-xs w-[120px] h-[40px] rounded-[28.5px] bg-[#292929]"
+              >
+                {selectedLanguage}
+                <img
+                  src="/assets/ArrowDown.svg"
+                  alt="Arrow"
+                  className="w-3 h-[6.8px]"
+                />
+              </button>
+
+              {languageDropdown && (
+                <div className="absolute z-10 mt-2 w-[120px] bg-[#292929] rounded-3xl shadow-lg">
+                  <button
+                    onClick={() => {
+                      console.log('Clicked English');
+                      handleLanguageChange('en');
+                    }}
+                    className="w-full px-4 py-3 text-xs text-white hover:bg-[#404040] rounded-t-3xl"
+                  >
+                    English
+                  </button>
+                  <button
+                    onClick={() => {
+                      console.log('Clicked Español');
+                      handleLanguageChange('es');
+                    }}
+                    className="w-full px-4 py-3 text-xs text-white hover:bg-[#404040] rounded-b-3xl"
+                  >
+                    Español
+                  </button>
+                </div>
+              )}
+            </div>
           )}
         </div>
 
