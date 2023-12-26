@@ -1,19 +1,44 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
 
-// const profileLinks = [
-//   {link : '' , text:''}
-// ]
-
 const DashboardTopBar = () => {
+  const { i18n } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
+  const [selectedLanguage, setSelectedLanguage] = useState('English');
+  const [languageDropdown, setLanguageDropdown] = useState(false);
+
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = event => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setTimeout(() => {
+          setLanguageDropdown(false);
+        }, 300);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
+  const handleLanguageChange = language => {
+    console.log('Changing language to:', language);
+    setSelectedLanguage(language === 'en' ? 'English' : 'Español');
+    setLanguageDropdown(false);
+    i18n.changeLanguage(language);
+  };
+
   const { full_name } = useSelector(state => state.auth.userDetails);
   const currentURL = location.pathname;
-  console.log(location.pathname);
-  console.log(currentURL === '/pay-now');
+
   return (
     <>
       <div className="hidden laptop:flex w-full h-[132px] justify-between items-center">
@@ -39,14 +64,54 @@ const DashboardTopBar = () => {
         </div>
 
         <div className="flex gap-5 items-center">
-          <button className="flex items-center justify-center gap-5 text-white font-thin text-sm w-[149px]  h-[57px] rounded-[28.5px] bg-[#292929]">
+          {/* <button className="flex items-center justify-center gap-5 text-white font-thin text-sm w-[149px]  h-[57px] rounded-[28.5px] bg-[#292929]">
             English
             <img
               src="/assets/ArrowDown.svg"
               alt="Arrow"
               className="w-3 h-[6.8px]"
             />
-          </button>
+          </button> */}
+          <div className="relative inline-block text-left">
+            <button
+              type="button"
+              ref={dropdownRef}
+              onClick={() => {
+                setLanguageDropdown(!languageDropdown);
+              }}
+              className="flex items-center justify-center gap-5 text-white font-thin text-sm w-[149px] h-[57px] rounded-[28.5px] bg-[#292929]"
+            >
+              {selectedLanguage}
+              <img
+                src="/assets/ArrowDown.svg"
+                alt="Arrow"
+                className="w-3 h-[6.8px]"
+              />
+            </button>
+
+            {languageDropdown && (
+              <div className="absolute z-10 mt-2 w-[149px] bg-[#292929] rounded-3xl shadow-lg">
+                <button
+                  onClick={() => {
+                    console.log('Clicked English');
+                    handleLanguageChange('en');
+                  }}
+                  className="w-full px-4 py-3 text-sm text-white hover:bg-[#404040] rounded-t-3xl"
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => {
+                    console.log('Clicked Español');
+                    handleLanguageChange('es');
+                  }}
+                  className="w-full px-4 py-3 text-sm text-white hover:bg-[#404040] rounded-b-3xl"
+                >
+                  Español
+                </button>
+              </div>
+            )}
+          </div>
 
           <div
             className="flex gap-3 cursor-pointer relative"
