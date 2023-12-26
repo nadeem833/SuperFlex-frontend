@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import CustomLoadingScreen from './components/CustomLoadingScreen.jsx';
+
 import App from './App.jsx';
 import './i18n.js';
 import './index.css';
@@ -18,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         path="/*"
         element={
           <Provider store={store}>
-            <Suspense fallback="loading">
+            <Suspense fallback={<CustomLoadingScreen />}>
               <PersistGate loading={null} persistor={persistor}>
                 <App />
               </PersistGate>
